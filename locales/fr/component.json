@@ -1,0 +1,25 @@
+{
+  "MainHeader": {
+    "Languages": {
+      "languagesDropdown": {
+        "labelledBy": "Choisir une langue"
+      }
+    }
+  },
+  "WIP": {
+    "strong": "Développement en cours !",
+    "text": "Merci de votre compréhension.",
+    "src": "Sources"
+  },
+  "Chat": {
+    "placeholder": "Message...",
+    "fetchMore": "Charger plus de messages...",
+    "noMoreMessages": "Fin des messages"
+  },
+  "Welcome": {
+    "label": "Nom d'utilisateur",
+    "placeholder": "Barney Stinson",
+    "helpText": "Aucune donnée n'est envoyé vers l'extérieur",
+    "submit": "Valider"
+  }
+}

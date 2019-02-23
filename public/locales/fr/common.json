@@ -1,0 +1,12 @@
+{
+  "splashLoading": "Chargement...",
+  "project": {
+    "title": "A simple chat",
+    "name": "simple-chat",
+    "shortName": "SC"
+  },
+  "language": {
+    "en": "English",
+    "fr": "Français"
+  }
+}

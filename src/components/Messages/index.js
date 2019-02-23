@@ -1,0 +1,133 @@
+import React from 'react';
+import swal from 'sweetalert';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { denormalize } from 'normalizr';
+import { translate } from 'react-i18next';
+
+import API from '../../API';
+import { messageListSchema } from '../../schemas/message';
+import { addMessages } from '../../actions/messages';
+
+import Chat from './Chat';
+
+class Messages extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { isFetching: false, isSending: false };
+  }
+
+  componentWillMount() {
+    this.fetchMessages();
+
+    // In real case, we need to subscribe here to a WebSocket
+    // const { channelId } = this.props;
+    // subscribeMessages({ id: channelId }, (update) => { /* Update sate */ });
+  }
+
+  async componentWillUnmount() {
+    // And unsubscribe here to a WebSocket
+    // const { channelId } = this.props;
+    // await client.unsubscribe(`/channel/${channelId}/messages`, null);
+
+    await false;
+  }
+
+  sendMessage(message) {
+    const { dispatch } = this.props;
+    const { isSending } = this.state;
+
+    const body = { message };
+
+    if (!isSending) {
+      API.message.create(body, {
+        onRequest: () => this.setState({ isSending: true }),
+        onSuccess: (response) => {
+          dispatch(addMessages(response));
+          this.setState({ isSending: false });
+        },
+        onError: () => {
+          this.setState({ isSending: false });
+          this.showError();
+        },
+      });
+    }
+  }
+
+  fetchMessages(limit = 15, skip = 0) {
+    const { dispatch } = this.props;
+    const { isFetching } = this.state;
+
+    const params = { limit, skip };
+
+    if (!isFetching) {
+      API.message.find(params, {
+        onRequest: () => this.setState({ isFetching: true }),
+        onSuccess: (response) => {
+          dispatch(addMessages(response));
+          this.setState({ isFetching: false });
+        },
+        onError: () => {
+          this.setState({ isFetching: false });
+          this.showError();
+        },
+      });
+    }
+  }
+
+  showError() {
+    const { t } = this.props;
+    swal(t('request:error.title'), t('request:error.notPrecise'), 'error');
+  }
+
+  render() {
+    const { credentials, messages, data } = this.props;
+    const { isFetching, isSending } = this.state;
+
+    return (
+      <section id="messages">
+        <div className="container">
+          <Chat
+            isFetching={isFetching}
+            isSending={isSending}
+            messages={messages}
+            onFetchMore={() => this.fetchMessages(15, data.skip + 15)}
+            onSubmit={values => this.sendMessage(values)}
+            remainMessages={messages.length < data.totalMessages}
+            totalMessages={data.totalMessages}
+            userId={credentials._id}
+            userName={credentials.userName}
+          />
+        </div>
+      </section>
+    );
+  }
+}
+
+Messages.propTypes = {
+  credentials: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+    userName: PropTypes.string.isRequired,
+  }).isRequired,
+  data: PropTypes.shape({
+    totalMessages: PropTypes.number.isRequired,
+  }).isRequired,
+  dispatch: PropTypes.func.isRequired,
+  messages: PropTypes.arrayOf(PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+  })),
+  t: PropTypes.func.isRequired,
+};
+
+Messages.defaultProps = {
+  messages: [],
+};
+
+export default translate()(connect(
+  state => ({
+    credentials: state.credentials,
+    data: state.messages,
+    messages: denormalize(state.messages.ids, messageListSchema, state.entities),
+  }),
+  dispatch => ({ dispatch }),
+)(Messages));

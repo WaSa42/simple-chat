@@ -1,0 +1,8 @@
+{
+  "error": {
+    "title": "Oops...",
+    "notPrecise": "Une erreur est survenue, réessayez plus tard.",
+    "badRequest": "Cette requête est incorrecte.",
+    "badToken": "Votre token était invalide, merci de vous reconnecter."
+  }
+}

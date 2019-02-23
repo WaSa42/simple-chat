@@ -1,0 +1,46 @@
+@import '../../../theme.scss';
+
+.chat {
+  position: relative;
+  margin-top: -1rem;
+
+  .chat-window {
+    overflow: hidden;
+    padding-bottom: 71px;
+    height: calc(100vh - 62px + 0.5rem);
+
+    .messages {
+      overflow-y: scroll;
+      padding-right: 0;
+      height: 100%;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    .fetch-more {
+      .btn-link {
+        color: $primary;
+        &[disabled] {
+          color: inherit;
+          text-decoration: none;
+          cursor: auto;
+        }
+      }
+    }
+
+    .bottom-wrapper {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      padding: 1rem 0;
+      width: 100%;
+      border-top: 1px solid #d6d8db;
+    }
+
+    @media (min-width: 768px) {
+      height: calc(100vh - 62px);
+    }
+  }
+}

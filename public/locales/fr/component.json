@@ -1,0 +1,20 @@
+{
+  "MainHeader": {
+    "Languages": {
+      "languagesDropdown": {
+        "labelledBy": "Choisir une langue"
+      }
+    }
+  },
+  "WIP": {
+    "strong": "Développement en cours !",
+    "text": "Merci de votre compréhension.",
+    "src": "Sources"
+  },
+  "Chat": {
+    "helpText": "Bonjour {{name}} ! Comment vas-tu ?",
+    "placeholder": "Message...",
+    "fetchMore": "Charger plus de messages...",
+    "noMoreMessages": "Fin des messages"
+  }
+}

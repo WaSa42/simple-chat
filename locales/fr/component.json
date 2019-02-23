@@ -19,7 +19,7 @@
   "Welcome": {
     "label": "Nom d'utilisateur",
     "placeholder": "Barney Stinson",
-    "helpText": "Aucune donnée n'est envoyé vers l'extérieur",
+    "helpText": "Aucune donnée n'est envoyée vers l'extérieur",
     "submit": "Valider"
   }
 }

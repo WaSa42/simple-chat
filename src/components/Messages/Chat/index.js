@@ -120,7 +120,7 @@ class Chat extends React.Component {
                 value={content}
               />
               <div className="input-group-append">
-                <button disabled={isSending} type="submit" className="btn btn-default">
+                <button disabled={isSending} type="submit" className="btn btn-primary">
                   <FontAwesomeIcon icon={isSending ? faSpinner : faPaperPlane} spin={isSending} />
                 </button>
               </div>

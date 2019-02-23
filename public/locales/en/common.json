@@ -1,7 +1,7 @@
 {
-  "splashLoading": "Chargement...",
+  "splashLoading": "Loading...",
   "project": {
-    "title": "Un simple chat",
+    "title": "A simple chat",
     "name": "simple-chat",
     "shortName": "SC"
   },

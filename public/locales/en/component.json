@@ -1,0 +1,25 @@
+{
+  "MainHeader": {
+    "Languages": {
+      "languagesDropdown": {
+        "labelledBy": "Choose a language"
+      }
+    }
+  },
+  "WIP": {
+    "strong": "Project in progress !",
+    "text": "Thanks for your understanding.",
+    "src": "Sources"
+  },
+  "Chat": {
+    "placeholder": "Message...",
+    "fetchMore": "Load more messages...",
+    "noMoreMessages": "End of messages"
+  },
+  "Welcome": {
+    "label": "User name",
+    "placeholder": "Barney Stinson",
+    "helpText": "None of these data are sent to the web",
+    "submit": "Submit"
+  }
+}

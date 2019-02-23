@@ -30,7 +30,7 @@ middleWares.concat([vanillaPromise, readyStatePromise]);
 const rootPersistConfig = {
   key: 'root',
   storage,
-  whitelist: ['app'],
+  whitelist: ['credentials'],
 };
 
 const persistedReducer = persistReducer(rootPersistConfig, reducers);

@@ -12,9 +12,14 @@
     "src": "Sources"
   },
   "Chat": {
-    "helpText": "Bonjour {{name}} ! Comment vas-tu ?",
     "placeholder": "Message...",
     "fetchMore": "Charger plus de messages...",
     "noMoreMessages": "Fin des messages"
+  },
+  "Welcome": {
+    "label": "Nom d'utilisateur",
+    "placeholder": "Barney Stinson",
+    "helpText": "Aucune donnée n'est envoyé vers l'extérieur",
+    "submit": "Valider"
   }
 }

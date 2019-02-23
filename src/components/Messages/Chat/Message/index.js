@@ -11,9 +11,8 @@ const Message = ({ content, isUser, picture, sentAt, userName }) => (
     <div className="text-wrapper">
       <div className="text">
         <div className="info">
-          {userName}
-          {' '}
-          <time className="d-none d-sm-inline">{moment(sentAt).format('LLL')}</time>
+          <span className="mr-2">{userName}</span>
+          <time className="d-none d-sm-inline">{moment.unix(sentAt / 1000).format('LLL')}</time>
         </div>
         {content}
       </div>

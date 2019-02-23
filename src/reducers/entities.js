@@ -10,7 +10,7 @@ import {
 } from '../actions/entities';
 
 const initialEntitiesState = {
-  feedItems: {},
+  messages: {},
 };
 
 function receiveEntities(state, action) {

@@ -7,7 +7,7 @@ import { translate } from 'react-i18next';
 
 import API from '../../API';
 import { messageListSchema } from '../../schemas/message';
-import { addMessages } from '../../actions/messages';
+import { addMessages, addSentMessage } from '../../actions/messages';
 
 import Chat from './Chat';
 
@@ -33,17 +33,17 @@ class Messages extends React.Component {
     await false;
   }
 
-  sendMessage(message) {
-    const { dispatch } = this.props;
+  sendMessage(input) {
+    const { dispatch, credentials } = this.props;
     const { isSending } = this.state;
 
-    const body = { message };
+    const body = { content: input.message, user: credentials };
 
     if (!isSending) {
       API.message.create(body, {
         onRequest: () => this.setState({ isSending: true }),
         onSuccess: (response) => {
-          dispatch(addMessages(response));
+          dispatch(addSentMessage(response));
           this.setState({ isSending: false });
         },
         onError: () => {
@@ -54,11 +54,11 @@ class Messages extends React.Component {
     }
   }
 
-  fetchMessages(limit = 15, skip = 0) {
-    const { dispatch } = this.props;
+  fetchMessages(limit = 10, skip = 0) {
+    const { i18n, dispatch } = this.props;
     const { isFetching } = this.state;
 
-    const params = { limit, skip };
+    const params = { limit, skip, language: i18n.language };
 
     if (!isFetching) {
       API.message.find(params, {
@@ -91,12 +91,11 @@ class Messages extends React.Component {
             isFetching={isFetching}
             isSending={isSending}
             messages={messages}
-            onFetchMore={() => this.fetchMessages(15, data.skip + 15)}
+            onFetchMore={() => this.fetchMessages(10, data.skip + 10)}
             onSubmit={values => this.sendMessage(values)}
             remainMessages={messages.length < data.totalMessages}
             totalMessages={data.totalMessages}
             userId={credentials._id}
-            userName={credentials.userName}
           />
         </div>
       </section>
@@ -113,6 +112,7 @@ Messages.propTypes = {
     totalMessages: PropTypes.number.isRequired,
   }).isRequired,
   dispatch: PropTypes.func.isRequired,
+  i18n: PropTypes.shape({ language: PropTypes.string }),
   messages: PropTypes.arrayOf(PropTypes.shape({
     _id: PropTypes.string.isRequired,
   })),
@@ -120,6 +120,7 @@ Messages.propTypes = {
 };
 
 Messages.defaultProps = {
+  i18n: { language: 'en' },
   messages: [],
 };
 

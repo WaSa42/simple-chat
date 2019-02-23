@@ -1,6 +1,7 @@
 import React from 'react';
-import { orderBy } from 'lodash';
 import PropTypes from 'prop-types';
+import orderBy from 'lodash/orderBy';
+import isEmpty from 'lodash/isEmpty';
 import { translate } from 'react-i18next';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner, faPaperPlane } from '@fortawesome/free-solid-svg-icons';
@@ -55,7 +56,7 @@ class Chat extends React.Component {
     const { isSending, onSubmit } = this.props;
     const { content } = this.state;
 
-    if (!isSending) {
+    if (!isSending && !isEmpty(content)) {
       onSubmit({ message: content });
       this.setState({ content: '' });
     }
@@ -65,6 +66,7 @@ class Chat extends React.Component {
 
   renderMessages() {
     const { messages, userId } = this.props;
+
     return orderBy(messages, ['sentAt'], ['asc']).map(message => (
       <Message
         {...message}
@@ -78,23 +80,14 @@ class Chat extends React.Component {
   }
 
   render() {
-    const { children, isFetching, isSending, remainMessages, t, totalMessages, userName } = this.props;
+    const { children, isFetching, isSending, remainMessages, t, totalMessages } = this.props;
     const { content } = this.state;
 
     return (
       <div id="chat" className="chat">
         <div className="chat-window">
           <ul className="messages pt-3" ref={(el) => { this.messages = el; }}>
-            <li className="message left">
-              <img className="avatar" src="https://avatars2.githubusercontent.com/u/6498751?s=460&v=4" alt="Avatar" />
-              <div className="text-wrapper">
-                <div className="text">
-                  {t('component:Chat.helpText', { name: userName })}
-                </div>
-              </div>
-              <hr className="mb-0" />
-            </li>
-            {totalMessages > 15 && (
+            {totalMessages > 10 && (
               <li className="fetch-more text-center mb-3">
                 <button
                   className="btn btn-link"
@@ -127,7 +120,7 @@ class Chat extends React.Component {
                 value={content}
               />
               <div className="input-group-append">
-                <button disabled={isSending} type="submit" className="btn btn-outline-secondary">
+                <button disabled={isSending} type="submit" className="btn btn-default">
                   <FontAwesomeIcon icon={isSending ? faSpinner : faPaperPlane} spin={isSending} />
                 </button>
               </div>
@@ -159,7 +152,6 @@ Chat.propTypes = {
   t: PropTypes.func.isRequired,
   totalMessages: PropTypes.number,
   userId: PropTypes.string.isRequired,
-  userName: PropTypes.string.isRequired,
 };
 
 Chat.defaultProps = {

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { translate } from 'react-i18next';
 import { ToastContainer } from 'react-toastify';
 
@@ -17,6 +18,7 @@ import './App.css';
 
 import Layout from '../Layout';
 import Messages from '../Messages';
+import Welcome from '../Welcome';
 
 class App extends React.Component {
   componentDidMount() {
@@ -34,18 +36,35 @@ class App extends React.Component {
   }
 
   render() {
+    const { credentials } = this.props;
+
     return (
       <div id="app">
         <ToastContainer />
-        <Layout>
-          <Messages />
-        </Layout>
+        {!credentials.userName ? <Welcome /> : (
+          <div className="hasUserName">
+            <Layout>
+              <Messages />
+            </Layout>
+          </div>
+        )}
       </div>
     );
   }
 }
 
-App.propTypes = { i18n: PropTypes.shape({ language: PropTypes.string }) };
-App.defaultProps = { i18n: { language: 'en' } };
+App.propTypes = {
+  credentials: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+    userName: PropTypes.string,
+  }).isRequired,
+  i18n: PropTypes.shape({ language: PropTypes.string }),
+};
+App.defaultProps = {
+  i18n: { language: 'en' },
+};
 
-export default translate()(App);
+export default translate()(connect(
+  state => ({ credentials: state.credentials }),
+  dispatch => ({ dispatch }),
+)(App));

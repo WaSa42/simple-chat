@@ -58,8 +58,8 @@
 
   .messages .message .avatar {
     display: inline-block;
-    width: 60px;
-    height: 60px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
   }
 
@@ -67,8 +67,8 @@
     position: relative;
     display: inline-block;
     padding: 15px;
-    min-width: 100px;
-    width: calc(100% - 80px);
+    min-width: calc(320px - 65px - 65px - 30px);
+    max-width: calc(100% - 65px);
     border-radius: 6px;
   }
 
@@ -109,5 +109,18 @@
 
   .messages .message .text-wrapper .text .info time {
     font-weight: 300;
+  }
+
+  @media (min-width: 768px) {
+    .messages .message .avatar {
+      width: 60px;
+      height: 60px;
+    }
+
+    .messages .message .text-wrapper {
+      display: inline-block;
+      width: auto;
+      max-width: calc(100% - 80px);
+    }
   }
 }

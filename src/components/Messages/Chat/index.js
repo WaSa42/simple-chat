@@ -37,7 +37,9 @@ class Chat extends React.Component {
   }
 
   scrollToBottom() {
-    this.messagesEnd.scrollIntoView({/* behavior: 'smooth' */});
+    if (this.messagesEnd) {
+      this.messagesEnd.scrollIntoView({/* behavior: 'smooth' */});
+    }
   }
 
   handleFetchMore(e) {
@@ -65,7 +67,7 @@ class Chat extends React.Component {
   }
 
   renderMessages() {
-    const { messages, userId } = this.props;
+    const { messages, onHideMessage, userId } = this.props;
 
     return orderBy(messages, ['sentAt'], ['asc']).map(message => (
       <Message
@@ -75,6 +77,7 @@ class Chat extends React.Component {
         picture={message.user.profile.picture}
         sentAt={message.sentAt}
         userName={message.user.userName}
+        onHide={() => onHideMessage && onHideMessage(message)}
       />
     ));
   }
@@ -147,6 +150,7 @@ Chat.propTypes = {
     }),
   })),
   onFetchMore: PropTypes.func.isRequired,
+  onHideMessage: PropTypes.func,
   onSubmit: PropTypes.func.isRequired,
   remainMessages: PropTypes.bool,
   t: PropTypes.func.isRequired,
@@ -156,6 +160,7 @@ Chat.propTypes = {
 
 Chat.defaultProps = {
   children: null,
+  onHideMessage: null,
   inputValue: '',
   messages: [],
   remainMessages: false,

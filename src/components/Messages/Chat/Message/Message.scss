@@ -12,6 +12,22 @@
     clear: both;
     overflow: hidden;
     margin-bottom: 20px;
+
+    .btn-hide {
+      all: unset;
+      position: absolute;
+      right: -10px;
+      bottom: 0;
+      cursor: pointer;
+      transform: translateX(100%);
+      display: none;
+    }
+
+    &:hover {
+      .btn-hide {
+        display: inline;
+      }
+    }
   }
 
   .messages .message.left .avatar {
@@ -20,8 +36,13 @@
   }
 
   .messages .message.left .text-wrapper {
+    position: relative;
     margin-left: 20px;
     background-color: lighten($primary, 40%);
+  }
+
+  .messages .message.left.hidden .text-wrapper {
+    display: none;
   }
 
   .messages .message.left .text-wrapper::after,
@@ -32,6 +53,10 @@
 
   .messages .message.left .text {
     color: $primary;
+  }
+
+  .messages .message.right.hidden {
+    opacity: 0.5;
   }
 
   .messages .message.right .avatar {

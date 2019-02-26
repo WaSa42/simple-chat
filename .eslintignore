@@ -6,3 +6,4 @@
 .idea
 /src/registerServiceWorker.js
 /src/serviceWorker.js
+src/__mocks__

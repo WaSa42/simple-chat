@@ -1,7 +1,7 @@
 import uid from 'uid';
 
 // import _fetchTo from '../_fetchTo';
-import mock from '../../mocks/messages';
+import mock from '../../__mocks__/messages';
 
 // const apiRoot = 'https://localhost:3001';
 
@@ -48,8 +48,21 @@ const create = (body, callbacks) => callbacks.onSuccess({
   message: {
     ...body,
     _id: uid(),
+    isHidden: false,
     sentAt: `${new Date().getTime()}`,
   },
 });
 
-export default { create, find };
+// const create = (body, callbacks) => _fetchTo(
+//   `${apiRoot}/message/update`,
+//   'POST',
+//   body,
+//   callbacks,
+// );
+
+// Return the message sent because there is no API
+const update = (body, callbacks) => callbacks.onSuccess({
+  message: body,
+});
+
+export default { create, find, update };

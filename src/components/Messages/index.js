@@ -7,7 +7,7 @@ import { translate } from 'react-i18next';
 
 import API from '../../API';
 import { messageListSchema } from '../../schemas/message';
-import { addMessages, addSentMessage } from '../../actions/messages';
+import { addMessages, addSentMessage, updateMessage } from '../../actions/messages';
 
 import Chat from './Chat';
 
@@ -54,6 +54,27 @@ class Messages extends React.Component {
     }
   }
 
+  hideMessage(message) {
+    const { dispatch, credentials } = this.props;
+    const { isUpdating } = this.state;
+
+    const body = { ...message, isHidden: !message.isHidden, user: credentials };
+
+    if (!isUpdating) {
+      API.message.update(body, {
+        onRequest: () => this.setState({ isUpdating: true }),
+        onSuccess: (response) => {
+          dispatch(updateMessage(response));
+          this.setState({ isUpdating: false });
+        },
+        onError: () => {
+          this.setState({ isUpdating: false });
+          this.showError();
+        },
+      });
+    }
+  }
+
   fetchMessages(limit = 10, skip = 0) {
     const { i18n, dispatch } = this.props;
     const { isFetching } = this.state;
@@ -92,6 +113,7 @@ class Messages extends React.Component {
             isSending={isSending}
             messages={messages}
             onFetchMore={() => this.fetchMessages(10, data.skip + 10)}
+            onHideMessage={message => this.hideMessage(message)}
             onSubmit={values => this.sendMessage(values)}
             remainMessages={messages.length < data.totalMessages}
             totalMessages={data.totalMessages}

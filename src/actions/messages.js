@@ -33,3 +33,14 @@ export function addSentMessage(response) {
     dispatch({ type: MESSAGE_SENT, id: result });
   };
 }
+
+export function updateMessage(response) {
+  const { message } = response;
+
+  return (dispatch) => {
+    const normalized = normalize(message, messageSchema);
+    const { entities } = normalized;
+
+    dispatch(receiveEntities(entities));
+  };
+}

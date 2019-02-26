@@ -1,0 +1,430 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="chat"
+  id="chat"
+>
+  <div
+    className="chat-window"
+  >
+    <ul
+      className="messages pt-3"
+    >
+      <li
+        className="fetch-more text-center mb-3"
+      >
+        <button
+          className="btn btn-link"
+          disabled={true}
+          onClick={[Function]}
+          onKeyPress={[Function]}
+        >
+          <span
+            className="ml-2"
+          >
+            component:Chat.noMoreMessages
+          </span>
+        </button>
+      </li>
+      <li
+        className="message left"
+      >
+        <img
+          alt="Avatar"
+          className="avatar"
+          src="avatar1.jpg"
+        />
+        <div
+          className="text-wrapper"
+        >
+          <div
+            className="text"
+          >
+            <div
+              className="info"
+            >
+              <span
+                className="mr-2"
+              >
+                Nicolas
+              </span>
+              <time
+                className="d-none d-sm-inline"
+              >
+                February 23, 2019 1:53 PM
+              </time>
+            </div>
+            Tu as vu l'épisode final de How I Met Your Mother ?
+          </div>
+        </div>
+      </li>
+      <li
+        className="message left"
+      >
+        <img
+          alt="Avatar"
+          className="avatar"
+          src="avatar2.png"
+        />
+        <div
+          className="text-wrapper"
+        >
+          <div
+            className="text"
+          >
+            <div
+              className="info"
+            >
+              <span
+                className="mr-2"
+              >
+                Samy
+              </span>
+              <time
+                className="d-none d-sm-inline"
+              >
+                February 23, 2019 1:55 PM
+              </time>
+            </div>
+            Oui, c'était pas mal.
+          </div>
+        </div>
+      </li>
+      <li
+        className="message left"
+      >
+        <img
+          alt="Avatar"
+          className="avatar"
+          src="avatar1.jpg"
+        />
+        <div
+          className="text-wrapper"
+        >
+          <div
+            className="text"
+          >
+            <div
+              className="info"
+            >
+              <span
+                className="mr-2"
+              >
+                Nicolas
+              </span>
+              <time
+                className="d-none d-sm-inline"
+              >
+                February 23, 2019 1:56 PM
+              </time>
+            </div>
+            J'ai bien aimé moi aussi, mais il est vivement critiqué apparemment...
+          </div>
+        </div>
+      </li>
+      <li
+        className="message left"
+      >
+        <img
+          alt="Avatar"
+          className="avatar"
+          src="avatar2.png"
+        />
+        <div
+          className="text-wrapper"
+        >
+          <div
+            className="text"
+          >
+            <div
+              className="info"
+            >
+              <span
+                className="mr-2"
+              >
+                Samy
+              </span>
+              <time
+                className="d-none d-sm-inline"
+              >
+                February 23, 2019 1:58 PM
+              </time>
+            </div>
+            C'est parce que les fan ne s'attendaient pas à ça et je peux les comprendre en soit.
+          </div>
+        </div>
+      </li>
+      <li
+        className="message left"
+      >
+        <img
+          alt="Avatar"
+          className="avatar"
+          src="avatar2.png"
+        />
+        <div
+          className="text-wrapper"
+        >
+          <div
+            className="text"
+          >
+            <div
+              className="info"
+            >
+              <span
+                className="mr-2"
+              >
+                Samy
+              </span>
+              <time
+                className="d-none d-sm-inline"
+              >
+                February 23, 2019 1:58 PM
+              </time>
+            </div>
+            Mais pour moi ça reste un bonne fin quand même. Après tant de saison et de blagues qui nous ont bien fait rire.
+          </div>
+        </div>
+      </li>
+      <li
+        className="message left"
+      >
+        <img
+          alt="Avatar"
+          className="avatar"
+          src="avatar1.jpg"
+        />
+        <div
+          className="text-wrapper"
+        >
+          <div
+            className="text"
+          >
+            <div
+              className="info"
+            >
+              <span
+                className="mr-2"
+              >
+                Nicolas
+              </span>
+              <time
+                className="d-none d-sm-inline"
+              >
+                February 23, 2019 2:00 PM
+              </time>
+            </div>
+            Carrémment ! C'est une série : Legen -
+          </div>
+        </div>
+      </li>
+      <li
+        className="message left"
+      >
+        <img
+          alt="Avatar"
+          className="avatar"
+          src="avatar2.png"
+        />
+        <div
+          className="text-wrapper"
+        >
+          <div
+            className="text"
+          >
+            <div
+              className="info"
+            >
+              <span
+                className="mr-2"
+              >
+                Samy
+              </span>
+              <time
+                className="d-none d-sm-inline"
+              >
+                February 23, 2019 2:00 PM
+              </time>
+            </div>
+            - dary ! Ah ah
+          </div>
+        </div>
+      </li>
+      <li
+        className="message left"
+      >
+        <img
+          alt="Avatar"
+          className="avatar"
+          src="avatar2.png"
+        />
+        <div
+          className="text-wrapper"
+        >
+          <div
+            className="text"
+          >
+            <div
+              className="info"
+            >
+              <span
+                className="mr-2"
+              >
+                Samy
+              </span>
+              <time
+                className="d-none d-sm-inline"
+              >
+                February 23, 2019 2:01 PM
+              </time>
+            </div>
+            Bref, je dois y aller, on se parlera de série un prochaine fois.
+          </div>
+        </div>
+      </li>
+      <li
+        className="message left"
+      >
+        <img
+          alt="Avatar"
+          className="avatar"
+          src="avatar2.png"
+        />
+        <div
+          className="text-wrapper"
+        >
+          <div
+            className="text"
+          >
+            <div
+              className="info"
+            >
+              <span
+                className="mr-2"
+              >
+                Samy
+              </span>
+              <time
+                className="d-none d-sm-inline"
+              >
+                February 23, 2019 2:01 PM
+              </time>
+            </div>
+            Tu me diras ce que tu penses de Bojack Horseman sur Netflix. A la prochaine.
+          </div>
+        </div>
+      </li>
+      <li
+        className="message left"
+      >
+        <img
+          alt="Avatar"
+          className="avatar"
+          src="avatar1.jpg"
+        />
+        <div
+          className="text-wrapper"
+        >
+          <div
+            className="text"
+          >
+            <div
+              className="info"
+            >
+              <span
+                className="mr-2"
+              >
+                Nicolas
+              </span>
+              <time
+                className="d-none d-sm-inline"
+              >
+                February 23, 2019 2:02 PM
+              </time>
+            </div>
+            Avec plaisir, c'esr une de mes séries préférées !
+          </div>
+        </div>
+      </li>
+      <li
+        className="message left"
+      >
+        <img
+          alt="Avatar"
+          className="avatar"
+          src="avatar1.jpg"
+        />
+        <div
+          className="text-wrapper"
+        >
+          <div
+            className="text"
+          >
+            <div
+              className="info"
+            >
+              <span
+                className="mr-2"
+              >
+                Nicolas
+              </span>
+              <time
+                className="d-none d-sm-inline"
+              >
+                February 23, 2019 2:02 PM
+              </time>
+            </div>
+            Ciao ciao
+          </div>
+        </div>
+      </li>
+      <div />
+    </ul>
+    <form
+      className="bottom-wrapper clearfix"
+      onSubmit={[Function]}
+    >
+      <div
+        className="input-group"
+      >
+        <input
+          autoComplete="off"
+          className="form-control"
+          name="content"
+          onChange={[Function]}
+          placeholder="component:Chat.placeholder"
+          value=""
+        />
+        <div
+          className="input-group-append"
+        >
+          <button
+            className="btn btn-primary"
+            disabled={false}
+            type="submit"
+          >
+            <svg
+              aria-hidden="true"
+              className="svg-inline--fa fa-paper-plane fa-w-16 "
+              data-icon="paper-plane"
+              data-prefix="fas"
+              focusable="false"
+              role="img"
+              style={Object {}}
+              viewBox="0 0 512 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M476 3.2L12.5 270.6c-18.1 10.4-15.8 35.6 2.2 43.2L121 358.4l287.3-253.2c5.5-4.9 13.3 2.6 8.6 8.3L176 407v80.5c0 23.6 28.5 32.9 42.5 15.8L282 426l124.6 52.2c14.2 6 30.4-2.9 33-18.2l72-432C515 7.8 493.3-6.8 476 3.2z"
+                fill="currentColor"
+                style={Object {}}
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+`;
